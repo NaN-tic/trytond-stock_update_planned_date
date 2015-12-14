@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!-- This file is part of the stock_update_planned_date module for Tryton.
+The COPYRIGHT file at the top level of this repository contains the full
+copyright notices and license terms. -->
+<tryton>
+    <data>
+        <record model="ir.ui.view" id="update_planned_date_start_view_form">
+            <field name="model">stock.update.planned.date.start</field>
+            <field name="type">form</field>
+            <field name="name">update_planned_date_start_form</field>
+        </record>
+
+        <record model="ir.action.wizard" id="wizard_update_planned_date">
+            <field name="name">Update Planned Date</field>
+            <field name="wiz_name">stock.update.planned.date</field>
+        </record>
+
+        <menuitem name="Update Planned Date" parent="stock.menu_shipment_out_form"
+            sequence="40" action="wizard_update_planned_date"
+            id="menu_update_planned_date"/>
+        <record model="ir.ui.menu-res.group" id="menu_update_planned_date_group_stock_admin">
+            <field name="menu" ref="menu_update_planned_date"/>
+            <field name="group" ref="stock.group_stock_admin"/>
+        </record>
+
+        <record model="ir.cron"
+                id="cron_shipment_out_update_planned_date_scheduler">
+            <field name="name">Update Shipment Out Planned Date</field>
+            <field name="request_user" ref="res.user_admin"/>
+            <field name="user" ref="res.user_trigger"/>
+            <field name="active" eval="True"/>
+            <field name="interval_number" eval="1"/>
+            <field name="interval_type">hours</field>
+            <field name="number_calls" eval="-1"/>
+            <field name="repeat_missed" eval="False"/>
+            <field name="model">stock.shipment.out</field>
+            <field name="function">update_planned_date</field>
+        </record>
+    </data>
+</tryton>

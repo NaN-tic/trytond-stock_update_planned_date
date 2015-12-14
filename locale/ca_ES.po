@@ -1,0 +1,43 @@
+#
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "field:stock.update.planned.date.start,date:"
+msgid "Date"
+msgstr "Data"
+
+msgctxt "field:stock.update.planned.date.start,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "model:ir.action,name:wizard_update_planned_date"
+msgid "Update Planned Date"
+msgstr "Actualizar data estimada"
+
+msgctxt "model:ir.cron,name:cron_shipment_out_update_planned_date_scheduler"
+msgid "Update Shipment Out Planned Date"
+msgstr "Actualizar data estimada albarans de sortida"
+
+msgctxt "model:ir.ui.menu,name:menu_update_planned_date"
+msgid "Update Planned Date"
+msgstr "Actualizar data estimada"
+
+msgctxt "model:stock.update.planned.date.start,name:"
+msgid "Update Planned Date Start"
+msgstr "Inici actualizar data estimada"
+
+msgctxt "view:stock.update.planned.date.start:"
+msgid "Update Planned Date"
+msgstr "Actualizar data estimada"
+
+msgctxt "view:stock.update.planned.date.start:"
+msgid "Update Shipment Out planned date to"
+msgstr "Actualiza la data estimada albarans de sortida a la data"
+
+msgctxt "wizard_button:stock.update.planned.date,start,end:"
+msgid "Cancel"
+msgstr "Cancel·la"
+
+msgctxt "wizard_button:stock.update.planned.date,start,update_planned_date:"
+msgid "OK"
+msgstr "D'acord"
