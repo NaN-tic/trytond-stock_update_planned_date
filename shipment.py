@@ -34,7 +34,7 @@ class ShipmentOut:
 
         # search shipment out
         domain = [
-            ('state', 'in', ['draft', 'assigned']),
+            ('state', 'in', ['draft', 'waiting', 'assigned']),
             ('planned_date', '<', date),
             ]
         if periods:
