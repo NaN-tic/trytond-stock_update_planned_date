@@ -10,10 +10,10 @@ from sql.functions import Substring, Position
 from sql.operators import Like
 
 __all__ = ['ShipmentOut', 'UpdatePlannedDateStart', 'UpdatePlannedDate']
-__metaclass__ = PoolMeta
 
 
 class ShipmentOut:
+    __metaclass__ = PoolMeta
     __name__ = 'stock.shipment.out'
 
     @classmethod
