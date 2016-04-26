@@ -12,27 +12,31 @@ msgstr "ID"
 
 msgctxt "model:ir.action,name:wizard_update_planned_date"
 msgid "Update Planned Date"
-msgstr "Actualizar data estimada"
+msgstr "Actualitza data estimada"
 
 msgctxt "model:ir.cron,name:cron_shipment_out_update_planned_date_scheduler"
 msgid "Update Shipment Out Planned Date"
-msgstr "Actualizar data estimada albarans de sortida"
+msgstr "Actualitza data estimada d'albarans de sortida"
+
+msgctxt "model:ir.cron,name:cron_stock_move_update_planned_date_scheduler"
+msgid "Updates Planned Date of Stock Moves"
+msgstr "Actualitza data estimada dels moviments d'albarà"
 
 msgctxt "model:ir.ui.menu,name:menu_update_planned_date"
 msgid "Update Planned Date"
-msgstr "Actualizar data estimada"
+msgstr "Actualitza data estimada"
 
 msgctxt "model:stock.update.planned.date.start,name:"
 msgid "Update Planned Date Start"
-msgstr "Inici actualizar data estimada"
+msgstr "Inici actualitzar data estimada"
+
+msgctxt "view:stock.update.planned.date.start:"
+msgid "Actualitza la data estimada d'albarans de sortida a la data"
+msgstr "Actualitza la data estimada albarans de sortida a la data"
 
 msgctxt "view:stock.update.planned.date.start:"
 msgid "Update Planned Date"
-msgstr "Actualizar data estimada"
-
-msgctxt "view:stock.update.planned.date.start:"
-msgid "Update Shipment Out planned date to"
-msgstr "Actualiza la data estimada albarans de sortida a la data"
+msgstr "Actualitza data estimada"
 
 msgctxt "wizard_button:stock.update.planned.date,start,end:"
 msgid "Cancel"
