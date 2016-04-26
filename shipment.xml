@@ -36,5 +36,19 @@ copyright notices and license terms. -->
             <field name="model">stock.shipment.out</field>
             <field name="function">update_planned_date</field>
         </record>
+
+        <record model="ir.cron"
+                id="cron_stock_move_update_planned_date_scheduler">
+            <field name="name">Updates Planned Date of Stock Moves</field>
+            <field name="request_user" ref="res.user_admin"/>
+            <field name="user" ref="res.user_trigger"/>
+            <field name="active" eval="True"/>
+            <field name="interval_number" eval="1"/>
+            <field name="interval_type">hours</field>
+            <field name="number_calls" eval="-1"/>
+            <field name="repeat_missed" eval="False"/>
+            <field name="model">stock.move</field>
+            <field name="function">renew_planned_date</field>
+        </record>
     </data>
 </tryton>
