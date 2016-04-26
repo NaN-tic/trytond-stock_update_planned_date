@@ -3,17 +3,56 @@
 # copyright notices and license terms.
 from trytond.pool import Pool, PoolMeta
 from trytond.model import ModelView, fields
-from trytond.wizard import Wizard, StateView, StateTransition, Button
 from trytond.transaction import Transaction
-from sql import Cast, Literal
-from sql.functions import Substring, Position
-from sql.operators import Like
+from trytond.wizard import Wizard, StateView, StateTransition, Button
 
-__all__ = ['ShipmentOut', 'UpdatePlannedDateStart', 'UpdatePlannedDate']
-__metaclass__ = PoolMeta
+
+__all__ = ['Move', 'ShipmentOut', 'UpdatePlannedDateStart',
+    'UpdatePlannedDate']
+
+
+class Move:
+    __metaclass__ = PoolMeta
+    __name__ = 'stock.move'
+
+    @classmethod
+    def renew_planned_date(cls, args=None, date=None):
+        pool = Pool()
+        Date_ = Pool().get('ir.date')
+        Period = pool.get('stock.period')
+
+        if not date:
+            date = Date_.today()
+
+        domain = [
+            ('state', 'in', ['draft', 'assigned']),
+            ('planned_date', '<', date),
+            ]
+        if args and 'shipment' in args:
+            domain.append(
+                ('shipment', 'like', args + ',%'),
+                )
+        elif args and ('purchase.line' in args or 'sale.line' in args):
+            domain.append(
+                ('origin', 'like', args + ',%'),
+                )
+
+        periods = Period.search([
+            ('state', '=', 'closed'),
+            ], order=[('date', 'DESC')], limit=1)
+        if periods:
+            period, = periods
+            domain.append(
+                ('planned_date', '>', period.date),
+                )
+        with Transaction().set_user(1):
+            moves = cls.search(domain)
+            if moves:
+                cls.write(moves, {'planned_date': date})
 
 
 class ShipmentOut:
+    __metaclass__ = PoolMeta
     __name__ = 'stock.shipment.out'
 
     @classmethod
@@ -44,21 +83,7 @@ class ShipmentOut:
         shipments = cls.search(domain)
         if shipments:
             cls.write(shipments, {'planned_date': date})
-
-        # search moves shipment out
-        domain = [
-            ('state', 'in', ['draft', 'assigned']),
-            ('planned_date', '<', date),
-            ('shipment', 'like', 'stock.shipment.out,%'),
-            ]
-        if periods:
-            period, = periods
-            domain.append(
-                ('planned_date', '>', period.date),
-                )
-        moves = Move.search(domain)
-        if moves:
-            Move.write(moves, {'planned_date': date})
+        Move.renew_planned_date(cls.__name__, date=date)
 
     @classmethod
     def update_planned_date(cls, args=None):

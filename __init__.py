@@ -4,8 +4,10 @@
 from trytond.pool import Pool
 from .shipment import *
 
+
 def register():
     Pool.register(
+        Move,
         ShipmentOut,
         UpdatePlannedDateStart,
         module='stock_update_planned_date', type_='model')
