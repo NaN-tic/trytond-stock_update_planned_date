@@ -18,6 +18,10 @@ msgctxt "model:ir.cron,name:cron_shipment_out_update_planned_date_scheduler"
 msgid "Update Shipment Out Planned Date"
 msgstr "Actualizar fecha prevista albaranes cliente"
 
+msgctxt "model:ir.cron,name:cron_stock_move_update_planned_date_scheduler"
+msgid "Updates Planned Date of Stock Moves"
+msgstr "Actualizar fecha prevista de movimientos de albarán"
+
 msgctxt "model:ir.ui.menu,name:menu_update_planned_date"
 msgid "Update Planned Date"
 msgstr "Actualizar fecha prevista"
