@@ -26,7 +26,6 @@ class ShipmentOut:
 
         if not date:
             date = Date_.today()
-        today = date = Date_.today()
 
         periods = Period.search([
             ('state', '=', 'closed'),
@@ -44,21 +43,22 @@ class ShipmentOut:
                 )
         shipments = cls.search(domain)
         if shipments:
-            cls.write(shipments, {'planned_date': today})
+            cls.write(shipments, {'planned_date': date})
 
         # search moves shipment out
         domain = [
             ('state', 'in', ['draft', 'assigned']),
             ('planned_date', '<', date),
+            ('shipment', 'like', 'stock.shipment.out,%'),
             ]
         if periods:
             period, = periods
             domain.append(
                 ('planned_date', '>', period.date),
                 )
-        moves = cls.search(domain)
+        moves = Move.search(domain)
         if moves:
-            Move.write(moves, {'planned_date': today})
+            Move.write(moves, {'planned_date': date})
 
     @classmethod
     def update_planned_date(cls, args=None):
