@@ -10,6 +10,7 @@ def register():
         Move,
         ShipmentOut,
         UpdatePlannedDateStart,
+        StockConfiguration,
         module='stock_update_planned_date', type_='model')
     Pool.register(
         UpdatePlannedDate,

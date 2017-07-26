@@ -8,7 +8,7 @@ from trytond.wizard import Wizard, StateView, StateTransition, Button
 
 
 __all__ = ['Move', 'ShipmentOut', 'UpdatePlannedDateStart',
-    'UpdatePlannedDate']
+    'UpdatePlannedDate', 'StockConfiguration']
 
 
 class Move:
@@ -49,6 +49,21 @@ class Move:
             moves = cls.search(domain)
             if moves:
                 cls.write(moves, {'planned_date': date})
+
+    @classmethod
+    def update_configured_planned_date(cls):
+        'Update planned date of move in and shipment out as configured'
+        pool = Pool()
+        ShipmentOut = pool.get('stock.shipment.out')
+        Date = pool.get('ir.date')
+        Configuration = pool.get('stock.configuration')
+        configuration = Configuration(1)
+        today = Date.today()
+
+        if configuration.update_move_in:
+            cls.renew_planned_date(args='purchase.line', date=today)
+        if configuration.update_shipment_out:
+            ShipmentOut.update_planned_date()
 
 
 class ShipmentOut:
@@ -119,3 +134,13 @@ class UpdatePlannedDate(Wizard):
 
         ShipmentOut.renew_planned_date(self.start.date)
         return 'end'
+
+
+class StockConfiguration:
+    __metaclass__ = PoolMeta
+    __name__ = 'stock.configuration'
+
+    update_shipment_out = fields.Boolean('Update Planned Dates of Customer '
+        'Shipments')
+    update_move_in = fields.Boolean('Update Planned Dates of Purchase '
+        'Movements')
