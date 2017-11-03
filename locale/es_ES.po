@@ -22,7 +22,7 @@ msgctxt "model:ir.action,name:wizard_update_planned_date"
 msgid "Update Planned Date"
 msgstr "Actualizar fecha prevista"
 
-msgctxt "model:ir.cron,name:"
+msgctxt "model:ir.cron,name:cron_shipment_out_update_planned_date_scheduler"
 msgid "Update Shipment Out Planned Date"
 msgstr "Actualizar fecha prevista albaranes cliente"
 
