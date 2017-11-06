@@ -152,8 +152,7 @@ class Move:
             origins.append('stock.shipment.in')
             origins.append('stock.shipment.in.return')
             origins.append('stock.shipment.internal')
-        if origins:
-            cls.renew_move_planned_date(origins, date=date)
+        cls.renew_move_planned_date(origins, date=date)
 
 
 class UpdatePlannedDateStart(ModelView):
