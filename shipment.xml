@@ -15,7 +15,7 @@ copyright notices and license terms. -->
             <field name="wiz_name">stock.update.planned.date</field>
         </record>
 
-        <menuitem name="Update Planned Date" parent="stock.menu_shipment_out_form"
+        <menuitem name="Update Planned Date" parent="stock.menu_stock"
             sequence="40" action="wizard_update_planned_date"
             id="menu_update_planned_date"/>
         <record model="ir.ui.menu-res.group" id="menu_update_planned_date_group_stock_admin">
@@ -24,31 +24,23 @@ copyright notices and license terms. -->
         </record>
 
         <record model="ir.cron"
-                id="cron_shipment_out_update_planned_date_scheduler">
-            <field name="name">Update Shipment Out Planned Date</field>
+                id="cron_update_planned_date_scheduler">
+            <field name="name">Update Planned Date</field>
             <field name="request_user" ref="res.user_admin"/>
             <field name="user" ref="res.user_trigger"/>
             <field name="active" eval="True"/>
             <field name="interval_number" eval="1"/>
-            <field name="interval_type">hours</field>
-            <field name="number_calls" eval="-1"/>
-            <field name="repeat_missed" eval="False"/>
-            <field name="model">stock.shipment.out</field>
-            <field name="function">update_planned_date</field>
-        </record>
-
-        <record model="ir.cron"
-                id="cron_stock_move_update_planned_date_scheduler">
-            <field name="name">Updates Planned Date of Stock Moves</field>
-            <field name="request_user" ref="res.user_admin"/>
-            <field name="user" ref="res.user_trigger"/>
-            <field name="active" eval="True"/>
-            <field name="interval_number" eval="1"/>
-            <field name="interval_type">hours</field>
+            <field name="interval_type">days</field>
             <field name="number_calls" eval="-1"/>
             <field name="repeat_missed" eval="False"/>
             <field name="model">stock.move</field>
-            <field name="function">renew_planned_date</field>
+            <field name="function">update_planned_date</field>
+        </record>
+
+        <record model="ir.ui.view" id="stock_configuration_view_form">
+            <field name="model">stock.configuration</field>
+            <field name="name">configuration_form</field>
+            <field name="inherit" ref="stock.stock_configuration_view_form"/>
         </record>
     </data>
 </tryton>

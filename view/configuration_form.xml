@@ -1,0 +1,18 @@
+<data>
+    <xpath expr="/form" position="inside">
+        <separator id="update_planned_date" colspan="4"
+            string="Update Planned Date"/>
+        <label name="update_shipment_out"/>
+        <field name="update_shipment_out"/>
+        <label name="update_shipment_in"/>
+        <field name="update_shipment_in"/>
+        <label name="update_shipment_internal"/>
+        <field name="update_shipment_internal"/>
+        <label name="update_move_in"/>
+        <field name="update_move_in"/>
+        <label name="update_move_out"/>
+        <field name="update_move_out"/>
+        <label name="update_move_shipment"/>
+        <field name="update_move_shipment"/>
+    </xpath>
+</data>

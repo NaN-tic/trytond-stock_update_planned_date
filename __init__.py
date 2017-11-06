@@ -2,15 +2,15 @@
 # The COPYRIGHT file at the top level of this repository contains the full
 # copyright notices and license terms.
 from trytond.pool import Pool
-from .shipment import *
+from . import shipment
 
 
 def register():
     Pool.register(
-        Move,
-        ShipmentOut,
-        UpdatePlannedDateStart,
+        shipment.Configuration,
+        shipment.Move,
+        shipment.UpdatePlannedDateStart,
         module='stock_update_planned_date', type_='model')
     Pool.register(
-        UpdatePlannedDate,
+        shipment.UpdatePlannedDate,
         module='stock_update_planned_date', type_='wizard')

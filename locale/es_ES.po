@@ -2,6 +2,14 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
 
+msgctxt "field:stock.configuration,update_move_in:"
+msgid "Update Planned Dates of Purchase Movements"
+msgstr "Actualizar fecha prevista de movimientos de compra"
+
+msgctxt "field:stock.configuration,update_shipment_out:"
+msgid "Update Planned Dates of Customer Shipments"
+msgstr "Actualizar fecha prevista de albaranes de cliente"
+
 msgctxt "field:stock.update.planned.date.start,date:"
 msgid "Date"
 msgstr "Fecha"
@@ -18,9 +26,9 @@ msgctxt "model:ir.cron,name:cron_shipment_out_update_planned_date_scheduler"
 msgid "Update Shipment Out Planned Date"
 msgstr "Actualizar fecha prevista albaranes cliente"
 
-msgctxt "model:ir.cron,name:cron_stock_move_update_planned_date_scheduler"
-msgid "Updates Planned Date of Stock Moves"
-msgstr "Actualizar fecha prevista de movimientos de albarán"
+msgctxt "model:ir.cron,name:cron_update_planned_date_scheduler"
+msgid "Update Planned Date"
+msgstr "Actualizar fecha prevista"
 
 msgctxt "model:ir.ui.menu,name:menu_update_planned_date"
 msgid "Update Planned Date"
@@ -29,6 +37,10 @@ msgstr "Actualizar fecha prevista"
 msgctxt "model:stock.update.planned.date.start,name:"
 msgid "Update Planned Date Start"
 msgstr "Inicio actualizar fecha prevista"
+
+msgctxt "view:stock.configuration:"
+msgid "Update planned date"
+msgstr "Actualizar fecha prevista"
 
 msgctxt "view:stock.update.planned.date.start:"
 msgid "Update Planned Date"

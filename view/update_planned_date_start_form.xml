@@ -5,7 +5,7 @@ copyright notices and license terms. -->
 <form string="Update Planned Date" col="2">
     <image name="tryton-dialog-information" xexpand="0" xfill="0"/>
     <group col="3" id="label_date">
-        <label string="Update Shipment Out planned date to" id="create"
+        <label string="Update Planned Date to" id="create"
             yalign="0.0" xalign="0.0"/>
         <label name="date"/>
         <field name="date"/>
