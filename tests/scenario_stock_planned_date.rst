@@ -82,8 +82,35 @@ Stock Configuration::
     >>> Config = Model.get('stock.configuration')
     >>> config = Config(1)
     >>> config.update_shipment_out = True
-    >>> config.update_move_shipment = True
     >>> config.save()
+
+Stock Move::
+
+    >>> StockMove = Model.get('stock.move')
+    >>> incoming_move = StockMove()
+    >>> incoming_move.product = product
+    >>> incoming_move.uom = unit
+    >>> incoming_move.quantity = 1
+    >>> incoming_move.from_location = supplier_loc
+    >>> incoming_move.to_location = storage_loc
+    >>> incoming_move.planned_date = yesterday
+    >>> incoming_move.effective_date = yesterday
+    >>> incoming_move.company = company
+    >>> incoming_move.unit_price = Decimal('100')
+    >>> incoming_move.currency = company.currency
+    >>> incoming_move.save()
+    >>> incoming_move2 = StockMove()
+    >>> incoming_move2.product = product
+    >>> incoming_move2.uom = unit
+    >>> incoming_move2.quantity = 1
+    >>> incoming_move2.from_location = supplier_loc
+    >>> incoming_move2.to_location = storage_loc
+    >>> incoming_move2.planned_date = tomorrow
+    >>> incoming_move2.effective_date = tomorrow
+    >>> incoming_move2.company = company
+    >>> incoming_move2.unit_price = Decimal('100')
+    >>> incoming_move2.currency = company.currency
+    >>> incoming_move2.save()
 
 Create Shipment Out::
 
@@ -150,4 +177,10 @@ Update planned/effective date::
     True
     >>> move1, move2 = shipment_out.outgoing_moves
     >>> move1.planned_date == today
+    True
+    >>> incoming_move.reload()
+    >>> incoming_move.planned_date == today
+    True
+    >>> incoming_move2.reload()
+    >>> incoming_move2.planned_date == tomorrow
     True

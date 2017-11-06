@@ -35,7 +35,7 @@ class Move:
         Date_ = Pool().get('ir.date')
 
         move = cls.__table__()
-        cursor = Transaction().cursor
+        cursor = Transaction().connection.cursor()
 
         if not date:
             date = Date_.today()
@@ -69,7 +69,7 @@ class Move:
         shipment_in = ShipmentIn.__table__()
         shipment_in_return = ShipmentInReturn.__table__()
         shipment_internal = ShipmentInternal.__table__()
-        cursor = Transaction().cursor
+        cursor = Transaction().connection.cursor()
 
         if not date:
             date = Date_.today()

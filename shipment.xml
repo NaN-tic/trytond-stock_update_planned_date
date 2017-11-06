@@ -34,7 +34,7 @@ copyright notices and license terms. -->
             <field name="number_calls" eval="-1"/>
             <field name="repeat_missed" eval="False"/>
             <field name="model">stock.move</field>
-            <field name="function">update_planned_date</field>
+            <field name="function">update_configured_planned_date</field>
         </record>
 
         <record model="ir.ui.view" id="stock_configuration_view_form">
