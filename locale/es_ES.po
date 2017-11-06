@@ -3,8 +3,24 @@ msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
 
 msgctxt "field:stock.configuration,update_move_in:"
-msgid "Update Planned Dates of Purchase Movements"
+msgid "Update Planned Dates of Purchase Moves"
 msgstr "Actualizar fecha prevista de movimientos de compra"
+
+msgctxt "field:stock.configuration,update_move_out:"
+msgid "Update Planned Dates of Sales Moves"
+msgstr "Actualizar fecha prevista de movimientos de venta"
+
+msgctxt "field:stock.configuration,update_move_shipment:"
+msgid "Update Planned of Dates Moves"
+msgstr "Actualizar fecha prevista de movimientos"
+
+msgctxt "field:stock.configuration,update_shipment_in:"
+msgid "Update Planned Dates of Supplier Shipments"
+msgstr "Actualizar fecha prevista de albaranes proveedor"
+
+msgctxt "field:stock.configuration,update_shipment_internal:"
+msgid "Update Planned Dates of Internal Shipments"
+msgstr "Actualizar fecha prevista de albaranes internos"
 
 msgctxt "field:stock.configuration,update_shipment_out:"
 msgid "Update Planned Dates of Customer Shipments"
@@ -22,7 +38,7 @@ msgctxt "model:ir.action,name:wizard_update_planned_date"
 msgid "Update Planned Date"
 msgstr "Actualizar fecha prevista"
 
-msgctxt "model:ir.cron,name:cron_shipment_out_update_planned_date_scheduler"
+msgctxt "model:ir.cron,name:"
 msgid "Update Shipment Out Planned Date"
 msgstr "Actualizar fecha prevista albaranes cliente"
 
@@ -39,7 +55,7 @@ msgid "Update Planned Date Start"
 msgstr "Inicio actualizar fecha prevista"
 
 msgctxt "view:stock.configuration:"
-msgid "Update planned date"
+msgid "Update Planned Date"
 msgstr "Actualizar fecha prevista"
 
 msgctxt "view:stock.update.planned.date.start:"
@@ -47,8 +63,8 @@ msgid "Update Planned Date"
 msgstr "Actualizar fecha prevista"
 
 msgctxt "view:stock.update.planned.date.start:"
-msgid "Update Shipment Out planned date to"
-msgstr "Actualizar fecha prevista albaranes cliente a la fecha"
+msgid "Update Planned Date to"
+msgstr "Actualizar fecha prevista a"
 
 msgctxt "wizard_button:stock.update.planned.date,start,end:"
 msgid "Cancel"
