@@ -2,6 +2,30 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
 
+msgctxt "field:stock.configuration,update_move_in:"
+msgid "Update Planned Dates of Purchase Moves"
+msgstr "Actualitza data estimada moviments de compra"
+
+msgctxt "field:stock.configuration,update_move_out:"
+msgid "Update Planned Dates of Sales Moves"
+msgstr "Actualitza data estimada moviments de venta"
+
+msgctxt "field:stock.configuration,update_move_shipment:"
+msgid "Update Planned of Dates Moves"
+msgstr "Actualitza data estimada moviments"
+
+msgctxt "field:stock.configuration,update_shipment_in:"
+msgid "Update Planned Dates of Supplier Shipments"
+msgstr "Actualitza data estimada albarans de proveïdor"
+
+msgctxt "field:stock.configuration,update_shipment_internal:"
+msgid "Update Planned Dates of Internal Shipments"
+msgstr "Actualitza data estimada albarans interns"
+
+msgctxt "field:stock.configuration,update_shipment_out:"
+msgid "Update Planned Dates of Customer Shipments"
+msgstr "Actualitza data estimada albarans clients"
+
 msgctxt "field:stock.update.planned.date.start,date:"
 msgid "Date"
 msgstr "Data"
@@ -14,13 +38,13 @@ msgctxt "model:ir.action,name:wizard_update_planned_date"
 msgid "Update Planned Date"
 msgstr "Actualitza data estimada"
 
-msgctxt "model:ir.cron,name:cron_shipment_out_update_planned_date_scheduler"
+msgctxt "model:ir.cron,name:"
 msgid "Update Shipment Out Planned Date"
 msgstr "Actualitza data estimada d'albarans de sortida"
 
-msgctxt "model:ir.cron,name:cron_stock_move_update_planned_date_scheduler"
-msgid "Updates Planned Date of Stock Moves"
-msgstr "Actualitza data estimada dels moviments d'albarà"
+msgctxt "model:ir.cron,name:cron_update_planned_date_scheduler"
+msgid "Update Planned Date"
+msgstr "Actualitza data estimada"
 
 msgctxt "model:ir.ui.menu,name:menu_update_planned_date"
 msgid "Update Planned Date"
@@ -30,13 +54,17 @@ msgctxt "model:stock.update.planned.date.start,name:"
 msgid "Update Planned Date Start"
 msgstr "Inici actualitzar data estimada"
 
-msgctxt "view:stock.update.planned.date.start:"
-msgid "Actualitza la data estimada d'albarans de sortida a la data"
-msgstr "Actualitza la data estimada albarans de sortida a la data"
+msgctxt "view:stock.configuration:"
+msgid "Update Planned Date"
+msgstr "Actualitza data estimada"
 
 msgctxt "view:stock.update.planned.date.start:"
 msgid "Update Planned Date"
 msgstr "Actualitza data estimada"
+
+msgctxt "view:stock.update.planned.date.start:"
+msgid "Update Planned Date to"
+msgstr "Actualitza data estimada a"
 
 msgctxt "wizard_button:stock.update.planned.date,start,end:"
 msgid "Cancel"

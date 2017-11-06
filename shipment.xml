@@ -15,7 +15,7 @@ copyright notices and license terms. -->
             <field name="wiz_name">stock.update.planned.date</field>
         </record>
 
-        <menuitem name="Update Planned Date" parent="stock.menu_shipment_out_form"
+        <menuitem name="Update Planned Date" parent="stock.menu_stock"
             sequence="40" action="wizard_update_planned_date"
             id="menu_update_planned_date"/>
         <record model="ir.ui.menu-res.group" id="menu_update_planned_date_group_stock_admin">
