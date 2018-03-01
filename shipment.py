@@ -40,11 +40,12 @@ class Move:
         if not date:
             date = Date_.today()
 
-        origs = [move.shipment.like(o+',%') for o in origins]
+        origs = [move.shipment.like(o + ',%') for o in origins]
 
         for field in ['planned_date', 'effective_date']:
             sql_where = (
-                ~move.state.in_(['cancel', 'done']) & (getattr(move, field) < date))
+                ~move.state.in_(['cancel', 'done'])
+                & (getattr(move, field) < date))
             if origs:
                 sql_where.append(Or(origs))
             # move.select(move.id, where=sql_where)
@@ -130,7 +131,7 @@ class Move:
             date = Date_.today()
 
         # stock.shipment
-        shipment_types =[]
+        shipment_types = []
         if conf.update_shipment_out:
             shipment_types.append('stock.shipment.out')
         if conf.update_shipment_in:
