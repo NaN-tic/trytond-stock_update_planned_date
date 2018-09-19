@@ -12,8 +12,7 @@ __all__ = ['Configuration', 'Move', 'UpdatePlannedDateStart',
     'UpdatePlannedDate']
 
 
-class Configuration:
-    __metaclass__ = PoolMeta
+class Configuration(metaclass=PoolMeta):
     __name__ = 'stock.configuration'
     update_shipment_out = fields.Boolean('Update Planned Dates of '
         'Customer Shipments')
@@ -26,8 +25,7 @@ class Configuration:
     update_move_shipment = fields.Boolean('Update Planned of Dates Moves')
 
 
-class Move:
-    __metaclass__ = PoolMeta
+class Move(metaclass=PoolMeta):
     __name__ = 'stock.move'
 
     @classmethod
