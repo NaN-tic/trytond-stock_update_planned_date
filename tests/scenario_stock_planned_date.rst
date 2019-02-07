@@ -63,7 +63,6 @@ Create product::
     >>> template.default_uom = unit
     >>> template.type = 'goods'
     >>> template.list_price = Decimal('20')
-    >>> template.cost_price = Decimal('8')
     >>> template.save()
     >>> product.template = template
     >>> product.save()
