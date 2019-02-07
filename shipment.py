@@ -12,8 +12,9 @@ __all__ = ['Configuration', 'Move', 'UpdatePlannedDateStart',
     'UpdatePlannedDate']
 
 
-class Configuration(metaclass=PoolMeta):
+class Configuration:
     __name__ = 'stock.configuration'
+    __metaclass__ = PoolMeta
     update_shipment_out = fields.Boolean('Update Planned Dates of '
         'Customer Shipments')
     update_shipment_in = fields.Boolean('Update Planned Dates of '
@@ -25,8 +26,9 @@ class Configuration(metaclass=PoolMeta):
     update_move_shipment = fields.Boolean('Update Planned of Dates Moves')
 
 
-class Move(metaclass=PoolMeta):
+class Move:
     __name__ = 'stock.move'
+    __metaclass__ = PoolMeta
 
     @classmethod
     def renew_move_planned_date(cls, origins, date=None):
