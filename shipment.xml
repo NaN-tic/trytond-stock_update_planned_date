@@ -27,7 +27,6 @@ copyright notices and license terms. -->
                 id="cron_update_planned_date_scheduler">
             <field name="name">Update Planned Date</field>
             <field name="request_user" ref="res.user_admin"/>
-            <field name="user" ref="res.user_trigger"/>
             <field name="active" eval="True"/>
             <field name="interval_number" eval="1"/>
             <field name="interval_type">days</field>
