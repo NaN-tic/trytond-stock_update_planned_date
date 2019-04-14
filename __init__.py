@@ -10,6 +10,7 @@ def register():
         shipment.Configuration,
         shipment.Move,
         shipment.UpdatePlannedDateStart,
+        shipment.Cron,
         module='stock_update_planned_date', type_='model')
     Pool.register(
         shipment.UpdatePlannedDate,

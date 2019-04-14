@@ -9,8 +9,18 @@ from trytond.wizard import Wizard, StateView, StateTransition, Button
 from sql.operators import Or
 
 __all__ = ['Configuration', 'Move', 'UpdatePlannedDateStart',
-    'UpdatePlannedDate']
+    'UpdatePlannedDate', 'Cron']
 
+
+class Cron(metaclass=PoolMeta):
+    __name__ = 'ir.cron'
+
+    @classmethod
+    def __setup__(cls):
+        super().__setup__()
+        cls.method.selection.extend([
+            ('stock.move|update_configured_planned_date', 'Update Planned Date'),
+        ])
 
 class Configuration(metaclass=PoolMeta):
     __name__ = 'stock.configuration'

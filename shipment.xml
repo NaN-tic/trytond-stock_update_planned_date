@@ -24,16 +24,11 @@ copyright notices and license terms. -->
         </record>
 
         <record model="ir.cron"
-                id="cron_update_planned_date_scheduler">
-            <field name="name">Update Planned Date</field>
-            <field name="request_user" ref="res.user_admin"/>
+            id="cron_update_planned_date_scheduler">
             <field name="active" eval="True"/>
             <field name="interval_number" eval="1"/>
             <field name="interval_type">days</field>
-            <field name="number_calls" eval="-1"/>
-            <field name="repeat_missed" eval="False"/>
-            <field name="model">stock.move</field>
-            <field name="function">update_configured_planned_date</field>
+            <field name="method">stock.move|update_configured_planned_date</field>
         </record>
 
         <record model="ir.ui.view" id="stock_configuration_view_form">
