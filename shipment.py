@@ -51,11 +51,15 @@ class Move(metaclass=PoolMeta):
         origs = [move.shipment.like(o + ',%') for o in origins]
 
         for field in ['planned_date', 'effective_date']:
-            sql_where = (
-                ~move.state.in_(['cancel', 'done'])
-                & (getattr(move, field) < date))
             if origs:
-                sql_where.append(Or(origs))
+                sql_where = (
+                    ~move.state.in_(['cancel', 'done'])
+                    & (getattr(move, field) < date) & Or ( origs ))
+            else:
+                sql_where = (
+                    ~move.state.in_(['cancel', 'done'])
+                    & (getattr(move, field) < date))
+
             # move.select(move.id, where=sql_where)
             cursor.execute(*move.update(
                     columns=[getattr(move, field), move.write_date],
