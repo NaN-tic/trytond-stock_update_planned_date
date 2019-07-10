@@ -19,7 +19,7 @@ class Cron(metaclass=PoolMeta):
     def __setup__(cls):
         super().__setup__()
         cls.method.selection.extend([
-            ('stock.move|update_configured_planned_date', 'Update Planned Date'),
+            ('stock.move|update_planned_date', 'Update Planned Date'),
         ])
 
 class Configuration(metaclass=PoolMeta):
