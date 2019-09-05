@@ -40,7 +40,8 @@ class Move:
         if not date:
             date = Date_.today()
 
-        origs = [move.shipment.like(o+',%') for o in origins]
+        origs = [move.shipment.like(o + ',%') if o.startswith('stock.shipment')
+            else move.origin.like(o + ',%') for o in origins]
 
         for field in ['planned_date', 'effective_date']:
             sql_where = (
