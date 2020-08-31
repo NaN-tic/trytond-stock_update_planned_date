@@ -54,11 +54,11 @@ class Move(metaclass=PoolMeta):
         for field in ['planned_date', 'effective_date']:
             if origs:
                 sql_where = (
-                    ~move.state.in_(['cancel', 'done'])
+                    ~move.state.in_(['cancelled', 'done'])
                     & (getattr(move, field) < date) & Or ( origs ))
             else:
                 sql_where = (
-                    ~move.state.in_(['cancel', 'done'])
+                    ~move.state.in_(['cancelled', 'done'])
                     & (getattr(move, field) < date))
 
             # move.select(move.id, where=sql_where)
@@ -93,7 +93,7 @@ class Move(metaclass=PoolMeta):
             for shipment_th in [shipment_out, shipment_out_return]:
                 for field in ['planned_date', 'effective_date']:
                     sql_where = (
-                        ~shipment_th.state.in_(['cancel', 'done']) & (
+                        ~shipment_th.state.in_(['cancelled', 'done']) & (
                             getattr(shipment_th, field) < date))
                     cursor.execute(*shipment_th.update(
                             columns=[
@@ -108,7 +108,7 @@ class Move(metaclass=PoolMeta):
             for shipment_th in [shipment_in, shipment_in_return]:
                 for field in ['planned_date', 'effective_date']:
                     sql_where = (
-                        ~shipment_th.state.in_(['cancel', 'done']) & (
+                        ~shipment_th.state.in_(['cancelled', 'done']) & (
                             getattr(shipment_th, field) < date))
                     cursor.execute(*shipment_th.update(
                             columns=[
@@ -122,7 +122,7 @@ class Move(metaclass=PoolMeta):
         if 'stock.shipment.internal' in shipment_types:
             for field in ['planned_date', 'effective_date']:
                 sql_where = (
-                    ~shipment_internal.state.in_(['cancel', 'done']) & (
+                    ~shipment_internal.state.in_(['cancelled', 'done']) & (
                         getattr(shipment_internal, field) < date))
                 cursor.execute(*shipment_internal.update(
                         columns=[
