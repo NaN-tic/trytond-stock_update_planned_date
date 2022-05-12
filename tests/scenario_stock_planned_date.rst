@@ -8,23 +8,16 @@ Imports::
     >>> from dateutil.relativedelta import relativedelta
     >>> from decimal import Decimal
     >>> from proteus import config, Model, Wizard
+    >>> from trytond.tests.tools import activate_modules
     >>> from trytond.modules.company.tests.tools import create_company, \
     ...     get_company
     >>> today = datetime.date.today()
     >>> yesterday = today - relativedelta(days=1)
     >>> tomorrow = today + relativedelta(days=1)
 
-Create database::
+Activate modules::
 
-    >>> config = config.set_trytond()
-    >>> config.pool.test = True
-
-Install stock Module::
-
-    >>> Module = Model.get('ir.module')
-    >>> module, = Module.find([('name', '=', 'stock_update_planned_date')])
-    >>> module.click('install')
-    >>> Wizard('ir.module.install_upgrade').execute('upgrade')
+    >>> config = activate_modules('stock_update_planned_date')
 
 Create company::
 
@@ -59,7 +52,6 @@ Create product::
     >>> product = Product()
     >>> template = ProductTemplate()
     >>> template.name = 'Product'
-    >>> template.category = category
     >>> template.default_uom = unit
     >>> template.type = 'goods'
     >>> template.list_price = Decimal('20')
